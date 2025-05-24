@@ -5,13 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HTML & CSS Challenge Hub</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(to bottom, #f0f2f5, #ffffff);
@@ -19,65 +14,33 @@
     }
 
     header {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  text-align: center;
-  padding: 60px 20px;
-  color: white;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      text-align: center;
+      padding: 60px 20px;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-header h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
 
-header p {
-  font-size: 1.1rem;
-  margin: 8px 0;
-  opacity: 0.95;
-  line-height: 1.6;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-header p:first-of-type {
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin-bottom: 20px;
-  opacity: 1;
-}
-
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 2.2rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
-  header p:first-of-type {
-    font-size: 1.1rem;
-  }
-}
-
-    #challenges {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      padding: 50px;
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 10px;
     }
 
     .challenge {
       border-radius: 20px;
-      padding: 25px;
+      padding: 20px;
       color: white;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
-      overflow: hidden;
-      position: relative;
     }
 
     .challenge:hover {
@@ -96,36 +59,6 @@ header p:first-of-type {
     .challenge:hover img {
       transform: scale(1.03);
       filter: brightness(1.1);
-    }
-
-    .challenge h2 {
-      font-size: 1.6rem;
-      margin-bottom: 8px;
-    }
-
-    .hint, .score {
-      font-size: 1rem;
-      opacity: 0.95;
-    }
-
-    .score {
-      font-weight: 600;
-    }
-
-    .challenge button {
-      margin-top: 15px;
-      padding: 10px 22px;
-      background-color: white;
-      color: #333;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s;
-    }
-
-    .challenge button:hover {
-      background-color: #f1f1f1;
     }
 
     .modal, #imageZoomModal {
@@ -162,24 +95,11 @@ header p:first-of-type {
       color: #666;
     }
 
-    .modal h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .modal-section {
-      margin-bottom: 20px;
-    }
-
-    .modal-section img {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-
-    .modal-section ul {
-      padding-left: 20px;
-      list-style-type: disc;
+    #zoomedImage {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
 
     footer {
@@ -189,48 +109,26 @@ header p:first-of-type {
       font-size: 1rem;
       color: #555;
     }
-
-    #zoomedImage {
-      max-width: 90vw;
-      max-height: 90vh;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-    }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>HTML & CSS challenges</h1>
+    <h1>HTML & CSS Challenges</h1>
     <p>Level up your frontend skills with colorful UI projects</p>
-    <p>Complete tasks, earn points, and showcase your mastery!</p>
-    <p>Click on a challenge to view details and start coding!</p>
-    <p>Hover over images to zoom in for a closer look!</p>
-    <p>Use the hints to guide you through each challenge!</p>
-    <p>Ready to take on the challenge? Let's get started!</p>
-    <p>Each challenge is designed to test your HTML & CSS skills in a fun and engaging way!</p>
-    <p>From magazine layouts to responsive designs, there's something for everyone!</p>
-    <p>Don't forget to check out the hints for each challenge to help you along the way!</p>
-    <p>Share your completed challenges with the community and inspire others!</p>
     <p>Happy coding!</p>
     <p>Remember, practice makes perfect, so keep challenging yourself!</p>
-
   </header>
 
-  <section id="challenges"></section>
+  <div class="container py-5">
+    <div class="row" id="challenges"></div>
+  </div>
 
   <footer>
-    <p>&copy; 2025 - Mentor Abdullah Waseem  HTML & CSS Mastery</p>
+    <p>&copy; 2025 - Mentor Abdullah Waseem HTML & CSS Mastery</p>
   </footer>
 
+  <!-- Modal for Task -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -251,6 +149,7 @@ header p:first-of-type {
     </div>
   </div>
 
+  <!-- Image Zoom Modal -->
   <div id="imageZoomModal" class="modal" onclick="closeImageZoom()">
     <div class="zoom-content" onclick="event.stopPropagation()">
       <img id="zoomedImage" src="" alt="Zoomed view" />
@@ -266,8 +165,8 @@ header p:first-of-type {
         score: 20,
         color: "#993333",
         description: "Replicate a four-section magazine-style layout with precise typography and positioning.",
-        material: `Magazee: Ut sit amet augue elit... Fusce ac enim at justo... Color code: #993333` ,
-        hints: ["Use Flexbox and nested containers", "Typography needs exact font-size, weight", "Play with gap, margin, line-height"]
+        material: `Magazee: Ut sit amet augue elit...`,
+        hints: ["Use Flexbox", "Exact typography", "Play with spacing"]
       },
       {
         title: "Split Layout: VR Landing Page",
@@ -276,8 +175,8 @@ header p:first-of-type {
         score: 20,
         color: "#673ab7",
         description: "Recreate a VR-themed layout with left text card, center beige strip, and right-side image.",
-        material: `VR-Technologies: Excepteur sint occaecat cupidatat non...`,
-        hints: ["Use flexbox row layout", "Min/max width handling for columns", "Set image to 100% height"]
+        material: `VR-Technologies: Excepteur sint occaecat...`,
+        hints: ["Flex row layout", "Column width", "Image height 100%"]
       },
       {
         title: "Responsive Support Services UI",
@@ -286,8 +185,8 @@ header p:first-of-type {
         score: 20,
         color: "#2196f3",
         description: "Build a three-column responsive UI for Booking, WhatsApp, and Live Chat support sections.",
-        material: `Manage Booking: Complete the form... WhatsApp Support... Live Chat...`,
-        hints: ["Use flex layout with equal-width items", "Spacing using padding/margin", "Icons centered using flex or grid"]
+        material: `Manage Booking, WhatsApp Support...`,
+        hints: ["Equal-width items", "Spacing", "Center icons"]
       },
       {
         title: "Creative Services Columns",
@@ -296,8 +195,8 @@ header p:first-of-type {
         score: 20,
         color: "#fbc02d",
         description: "Reconstruct layout with image/text, vertical service sections, and column spacing.",
-        material: `01 Development: Ut enim... 02 Design: Ut enim... 03 Materials...`,
-        hints: ["Use 3-column grid", "Stacked layout for center using block or flex-column", "Switch backgrounds using nth-child"]
+        material: `01 Development: Ut enim...`,
+        hints: ["3-column grid", "Stack center section", "nth-child backgrounds"]
       },
       {
         title: "Italian Pizza Menu Layout",
@@ -306,8 +205,8 @@ header p:first-of-type {
         score: 20,
         color: "#e91e63",
         description: "Develop a pizza menu with header and card grid, exact spacing and typography.",
-        material: `Italy Pizza Menu: Cheese, Pepperoni, Veggie... with prices...`,
-        hints: ["Use CSS grid for layout", "Align text and price using flex-column", "Use consistent card padding and border-radius"]
+        material: `Italy Pizza Menu: Cheese, Pepperoni...`,
+        hints: ["CSS grid", "Text & price alignment", "Card styling"]
       }
     ];
 
@@ -319,17 +218,20 @@ header p:first-of-type {
     const taskHints = document.getElementById("taskHints");
 
     challenges.forEach((c, index) => {
-      const div = document.createElement("div");
-      div.className = "challenge";
-      div.style.backgroundColor = c.color;
-      div.innerHTML = `
+      const col = document.createElement("div");
+      col.className = "col-md-6 col-lg-4 mb-4";
+      const card = document.createElement("div");
+      card.className = "challenge";
+      card.style.backgroundColor = c.color;
+      card.innerHTML = `
         <img src="${c.image}" alt="${c.title}" onclick="zoomImage('${c.image}')" />
         <h2>${c.title}</h2>
         <p class="hint">${c.hint}</p>
         <p class="score">Score: ${c.score}</p>
-        <button onclick="openModal(${index})">View Task</button>
+        <button class="btn btn-light mt-2" onclick="openModal(${index})">View Task</button>
       `;
-      container.appendChild(div);
+      col.appendChild(card);
+      container.appendChild(col);
     });
 
     function openModal(index) {
